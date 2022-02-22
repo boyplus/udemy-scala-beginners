@@ -52,7 +52,6 @@ object Function extends App {
   println("5! is "+factorial(5))
 
 
-
   // 3. A Fibonacci function
   def fib(n: Int): Int = {
     if(n <= 2) 1
