@@ -90,3 +90,20 @@ object MethodNotations extends App {
   // 4
   println(mary.apply(3))
 }
+
+/*
+Takeaways
+1. Infix notation
+-> object method parameter
+-> ex. mary likes "Inception"
+
+2. Prefix notation -> only allowed for + - / ~
+-> mary.unary_!
+-> !mary
+
+
+3. Postfix notation
+-> mary.isAlive
+-> mary isAllive
+
+ */
