@@ -40,7 +40,7 @@ trait MyTransformer[-A,B]{
 //}
 
 
-object Empty extends MyList[Nothing] {
+case object Empty extends MyList[Nothing] {
   // ??? is default implementation -> we will implement them later
   def head: Nothing = throw new NoSuchElementException
   def tail: MyList[Nothing] = throw new NoSuchElementException
@@ -55,7 +55,7 @@ object Empty extends MyList[Nothing] {
   def ++[B >: Nothing](list: MyList[B]): MyList[B] = list
 }
 
-class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
+case class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
   def head: A = h
   def tail: MyList[A] = t
   def isEmpty: Boolean = false
@@ -94,8 +94,9 @@ object ListTest extends App{
 //  println(list.toString)
 
   val listOfInteger: MyList[Int] = new Cons(1, new Cons(2, new Cons(3, Empty)))
+  val cloneListOfInteger: MyList[Int] = new Cons(1, new Cons(2, new Cons(3, Empty)))
   val anotherListOfInteger: MyList[Int] = new Cons(4, new Cons(5, new Cons(6, Empty)))
-  val listOfString: MyList[String] = new Cons[String]("Hello", new Cons[String]("Sacla", Empty))
+  val listOfString: MyList[String] = new Cons[String]("Hello", new Cons[String]("Scala", Empty))
 
   println(listOfInteger.toString)
   println(listOfString.toString)
@@ -115,5 +116,8 @@ object ListTest extends App{
       new Cons[Int](element, new Cons[Int](element+1,Empty))
     }
   }).toString)
+
+  // Since case class already have equals() method, we can compare directly
+  println(cloneListOfInteger == listOfInteger)
 
 }
