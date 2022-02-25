@@ -36,7 +36,7 @@ object MethodNotations extends App {
 
     def isAlive: Boolean = true
 
-    def apply(): String = s"Hi, my name is $name and I like $favMovie"
+    def apply: String = s"Hi, my name is $name and I like $favMovie"
     def apply(n: Int): String = s"$name watched $favMovie $n times"
 
   }
@@ -74,7 +74,7 @@ object MethodNotations extends App {
 
   // Apply
   println(mary.apply)
-  println(mary()) // equivalent -> it looks for apply function
+  println(mary) // equivalent -> it looks for apply function
 
   // Test exercise
   // 1

@@ -8,10 +8,9 @@ object Function extends App {
 
   println(aFunction("boy",20))
 
-  def aParameterLessFunction(): Int = 42
+  def aParameterLessFunction: Int = 42
 
-  println(aParameterLessFunction())
-  // If there is no parameter in function, we can call without parentheses
+  // In scala 3, if we define without (), we must not put () when we invoke ot
   println(aParameterLessFunction)
 
   // For recursive function, we need to tell the return type !!

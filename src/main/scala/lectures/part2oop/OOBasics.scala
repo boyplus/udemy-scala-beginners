@@ -40,7 +40,7 @@ object OOBasics extends App {
  */
 
 class Writer(val firstname: String, val surname: String, val year: Int){
-  def fullname(): String = s"$firstname $surname"
+  def fullname: String = s"$firstname $surname"
 }
 
 class Novel(val name: String, val year: Int, val author: Writer){
@@ -78,11 +78,11 @@ class Person(val name: String, val age: Int) /*Constructor*/ {
  */
 
 class Counter(val count: Int){
-  def inc(): Counter = {
+  def inc: Counter = {
     println("Incrementing")
     new Counter(count+1)
   }
-  def dec(): Counter = {
+  def dec: Counter = {
     println("Decrementing")
     new Counter(count-1)
   }
