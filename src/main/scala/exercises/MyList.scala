@@ -102,21 +102,23 @@ object ListTest extends App{
   println(listOfInteger.toString)
   println(listOfString.toString)
 
-  println(listOfInteger.map(new Function1[Int,Int] {
-    override def apply(element: Int): Int = element*2
-  }).toString)
+  println(listOfInteger.map(el=>el*2).toString)
 
-  println(listOfInteger.filter(new Function1[Int,Boolean] {
-    override def apply(element: Int): Boolean = element%2 == 0
-  }).toString)
+//  println(listOfInteger.filter(new Function1[Int,Boolean] {
+//    override def apply(element: Int): Boolean = element%2 == 0
+//  }).toString)
+
+  println(listOfInteger.filter(x => x%2 == 0))
 
   println(listOfInteger++anotherListOfInteger)
 
-  println(listOfInteger.flatMap(new Function1[Int, MyList[Int]] {
-    override def apply(element: Int): MyList[Int] = {
-      new Cons[Int](element, new Cons[Int](element+1,Empty))
-    }
-  }).toString)
+//  println(listOfInteger.flatMap(new Function1[Int, MyList[Int]] {
+//    override def apply(element: Int): MyList[Int] = {
+//      new Cons[Int](element, new Cons[Int](element+1,Empty))
+//    }
+//  }).toString)
+
+  println(listOfInteger.flatMap(element => new Cons(element, new Cons[Int](element+1,Empty))).toString)
 
   // Since case class already have equals() method, we can compare directly
   println(cloneListOfInteger == listOfInteger)
